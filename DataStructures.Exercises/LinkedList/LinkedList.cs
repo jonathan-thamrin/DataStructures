@@ -9,9 +9,7 @@ public class LinkedList<T> : IList<T>
 
     public IEnumerator<T> GetEnumerator()
     {
-        throw new NotImplementedException();
-        
-        // while next isn't null, yield return the node?
+        return new LinkedListEnumerator<T>(this);
     }
 
     IEnumerator IEnumerable.GetEnumerator()
@@ -75,7 +73,21 @@ public class LinkedList<T> : IList<T>
 
     public T this[int index]
     {
-        get => throw new NotImplementedException();
-        set => throw new NotImplementedException();
+        get
+        {
+            var count = 0;
+            var currentNode = head;
+            while (count < index)
+            {
+                currentNode = currentNode.Next;
+                count++;
+            }
+
+            return currentNode.Item;
+        }
+        set
+        {
+            
+        }
     }
 }
