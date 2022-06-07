@@ -9,10 +9,4 @@ public class Node<T>
     {
         Item = item;
     }
-
-    public Node(Node<T> next, T item)
-    {
-        Next = next;
-        Item = item;
-    }
 }
